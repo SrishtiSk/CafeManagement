@@ -12,7 +12,7 @@ var checkRole = require('../services/checkRole');
 
 router.post('/signup', (request, res)=>{
     let user = request.body;
-    query = "select email, password, role, status from user where email=?";
+    query = "SELECT email, password, role, status FROM user WHERE email=?";
     connection.query(query, [user.email], (err,results)=>{
         if(err){ 
             return res.status(500).json({message:"idiot error"});
@@ -133,7 +133,8 @@ router.post('/changePassword',auth.authenticateToken, (req, res)=>{
     })
 });
 
-//get all users (only accessable to admin)
+//get all users (only accessable to admin) //checkrole is used when we want only admin to have its access
+
 router.get('/get', auth.authenticateToken, checkRole.checkRole, (req,res)=>{ 
     var query = `SELECT id, name, email, contactNumber, status FROM user WHERE role="user"`;
     connection.query(query, (error, results)=>{
@@ -148,7 +149,7 @@ router.get('/get', auth.authenticateToken, checkRole.checkRole, (req,res)=>{
 //patch- update user
 router.patch('/update', auth.authenticateToken, checkRole.checkRole, (req, res)=>{
     let user = req.body;
-    var query = `update user set status=? where id=?`;
+    var query = `UPDATE user SET status=? WHERE id=?`;
     connection.query(query, [user.status, user.id], (err, results)=>{
         if(err)
             return res.status(500).json(err);
@@ -161,7 +162,7 @@ router.patch('/update', auth.authenticateToken, checkRole.checkRole, (req, res)=
     });
 });
 
-router.get('/checkToken', auth.authenticateToken, (req, res)=>{
+router.get('/checktoken', auth.authenticateToken, (req, res)=>{
     return res.status(200).json({message: "true"});
 });
 

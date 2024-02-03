@@ -15,7 +15,7 @@ var connection = mysql.createConnection({
 });
 connection.connect((err)=>{
     if(!err){
-        console.log("DB CONNECTED");
+        console.log("'CafeMangement' DATABASE CONNECTED");
     }
     else{
         console.log(err, "failled to connect");
