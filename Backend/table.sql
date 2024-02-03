@@ -24,3 +24,9 @@ values('Admin', '9876543210', 'admin@mail.com', 'password', 'true', 'admin');
     "status":"",
     "role":""
 }
+
+CREATE TABLE Category(
+    id INT NOT NULL AUTO_INCREMENT,
+    name varchar(225) NOT NULL,
+    primary key(id)
+);
