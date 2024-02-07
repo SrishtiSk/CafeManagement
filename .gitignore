@@ -2,7 +2,7 @@
 **/node_modules
 
 #specific files
-/backend/generated_pdf
+/backend/generated_pdf/**.pdf
 
 #misc
 npm-debug.log*
