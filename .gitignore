@@ -1,5 +1,8 @@
 #dependencies
-/node_modules
+**/node_modules
+
+#specific files
+/backend/generated_pdf
 
 #misc
 npm-debug.log*
