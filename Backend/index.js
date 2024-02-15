@@ -5,7 +5,7 @@ const userRoute = require('./routes/user'); // connect the table(/objectRoute) t
 const categoryRotue = require('./routes/category');
 const productRoute = require('./routes/product');
 const billRoute = require('./routes/bill');
-
+const dashboard = require('./routes/dashboard');
 const app = express();
 
 app.use(cors());
@@ -16,5 +16,6 @@ app.use('/user', userRoute); //define the route name
 app.use('/category', categoryRotue);
 app.use('/product', productRoute);
 app.use('/bill', billRoute);
+app.use('/dashboard', dashboard);
 
 module.exports = app;
