@@ -1,4 +1,4 @@
-use CafeMangement;
+use CafeMangement; /*CafeManagement*/
 
 create table user(
     id int primary key AUTO_INCREMENT,
